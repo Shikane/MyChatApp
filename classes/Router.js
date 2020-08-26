@@ -1,4 +1,4 @@
-var UserController = require('../controllers/UserController');
+var UserController = require('../controllers/UserController'); 
 var ChannelController = require('../controllers/ChannelController');
 var createError = require('http-errors');
 
@@ -38,7 +38,10 @@ class Router{
      * no controllers or models
      */
     addBaseRoutes() {
-        AraDTApp.get('/', this.index);
+        AraDTApp.get('/register', this.signup);
+        signup(request, response){
+            response.render('register');
+        }
     }
 
 
