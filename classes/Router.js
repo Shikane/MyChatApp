@@ -38,10 +38,7 @@ class Router{
      * no controllers or models
      */
     addBaseRoutes() {
-        AraDTApp.get('/register', this.signup);
-        signup(request, response){
-            response.render('register');
-        }
+        AraDTApp.get('/', this.index);
     }
 
 
@@ -50,8 +47,10 @@ class Router{
      * e.g. Users, Channels, Messages
      */
     addControllers() {
-        var userController = new UserController();
         var channelController = new ChannelController();
+        var userController = new UserController();
+        channelController.addRoutes();
+        userController.addRoutes();
     }
 
     // Renders home page ./views/index.ejs
