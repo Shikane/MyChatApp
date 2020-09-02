@@ -18,20 +18,21 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="nav navbar-nav ml-auto">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="/channels" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="fas fa-address-book"></i>Channels
-							</a>
+						<% if (locals.user) { %>
+						<li class="nav-item">
+							<a class="nav-link" href="/channels"><i class="fas fa-address-book"></i>Channels</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#"><i class="fas fa-user"></i>Users</a>
+						    <a class="nav-link" href="/account"><i class="fas fa-sliders-h"></i>Settings</a>
 						</li>
 						<li class="nav-item">
-						    <a class="nav-link" href="#"><i class="fas fa-sliders-h"></i>Settings</a>
+						    <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
 						</li>
+						<% } else { %>
 						<li class="nav-item">
 						    <a class="nav-link" href="/register"><i class="fas fa-sign-in-alt"></i>Register</a>
 						</li>
+						<% } %>
 					</ul>
 				</div>
 			</nav>
