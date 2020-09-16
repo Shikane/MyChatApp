@@ -6,6 +6,17 @@
 					</div>  
 					<main role="main" class="col-md-9">
 						<h1>Login</h1>
+						<% if (locals.errors && locals.errors.login) { %>
+							<div class="container">
+								<div class="row justify-content-md-center">
+									<div class="generic-errors col-6">
+										<% locals.errors.login.forEach(function(error) { %>
+											<p class="alert alert-primary" role="alert"><%= error %></p>
+										<% }) %>
+									</div>
+								</div>
+							</div>
+						<% } %>
 						<form action="/login" method="post">
 							<input type="email" name="email" placeholder="Email">
 							<input type="password" name="password" placeholder="Password">

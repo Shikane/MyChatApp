@@ -8,6 +8,7 @@
         <h1>My Account</h1>
         <form action="/account" method="post" enctype="multipart/form-data">
           <input type="text" name="displayName" placeholder="Display Name" value="<%= locals.user.displayName %>">
+          <input type="email" name="email" placeholder="Display Name" value="<%= locals.user.email %>">
           <% if (locals.user.photoURL) { %>
             <p class="avatar">
               <img src="<%= locals.user.photoURL %>" alt="">

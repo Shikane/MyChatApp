@@ -4,14 +4,29 @@
     <div class="row">
       <main role="main" class="col">
         <h1>Main</h1>
+        <% if (locals.errors && locals.errors.login) { %>
+          <div class="container">
+            <div class="row justify-content-md-center">
+              <div class="generic-errors col-6">
+                <% locals.errors.login.forEach(function(error) { %>
+                  <p class="alert alert-primary" role="alert"><%= error %></p>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+        <% } %>
         <form action="/login" method="post">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
         </form>
       </main>
-      <form action="/login" method="post">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
-      </form>
     </div> <!-- end .row --> 
   </div><!-- end .container-fluid -->
 </div><!-- end #main -->
